@@ -1,8 +1,6 @@
 # **Gaia** Stellar Data Analytics
 
-This repository contains my work for **2 assignments** in the **Fundamental of Data Analytics** subject at the **University of Technology Sydney** (UTS) taught by [Dr. Maoying Qiao](https://profiles.uts.edu.au/Maoying.Qiao). 
-
-Each assignment is done using mostly [scikit-learn](https://scikit-learn.org/stable/) along with a `notebook` and a `pdf`, which includes a detailed the explanation of the concepts and implementations involved.
+This repository contains my work for **2 assignments** in the **Fundamental of Data Analytics** subject at the **University of Technology Sydney** (UTS) taught by [Dr. Maoying Qiao](https://profiles.uts.edu.au/Maoying.Qiao). Each assignment is done using mostly [scikit-learn](https://scikit-learn.org/stable/) along with a `notebook` and a `pdf`, which includes a detailed explanation of the concepts and implementations involved, helping me achieve a perfect score of **100/100** for the subject.
 
 ## Scenario
 
@@ -36,6 +34,8 @@ In this project, the Head of the Analytics Unit asks you to use **Gaia** observa
 
 ## [Assignment 1](./data_exploration/): Data Exploration and Visualisation
 
+![](./data_exploration/fda_a2.png)
+
 > A thorough exploration of the dataset, identifying and characterizing outliers, clusters of data points, and potential attributes with well-chosen visualizations (including clear descriptions and interpretation). 
 
 1️⃣ Identify the attribute type (*qualitative*, *discreet*/*continuous* *quantitative*, *nominal*, *ordinal*, *interval*, *ratio*) of each attribute in the dataset
@@ -49,7 +49,7 @@ In this project, the Head of the Analytics Unit asks you to use **Gaia** observa
 
 4️⃣ Explore multiple attributes' relationships of the dataset and include explanations of what has been identified:
 - Analyze noticeable distributions and relationships from the [pairplot](https://seaborn.pydata.org/generated/seaborn.pairplot.html). 
-- Analyze all noticeable values from the **correlation matri**x, from the strongest to weakest.
+- Analyze all noticeable values from the **correlation matrix**, from the strongest to weakest.
 - Identify **interesting** and potential attributes, and specific values of those attributes.
 
 5️⃣ Apply *Equi-width* (Equal-interval) and *Equi-depth* (Equal-frequency) binning techniques using [`pd.cut`](https://pandas.pydata.org/docs/reference/api/pandas.cut.html) to smooth the values of **RA_ICRS** and **DE_ICRS** by bin means/boundaries
@@ -58,7 +58,9 @@ In this project, the Head of the Analytics Unit asks you to use **Gaia** observa
 
 ## [Assignment 2](./stellar_classification/): Data Preprocessing and Stellar Classification
 
-> A practical data analytics project that follows on from the data exploration in [Assignment 1](#assignment-1-data-exploration-and-visualisation). Here, you will make a correct prediction on this dataset after employing a sophisticated process of exploring the problem very thoroughly, preprocessing the data, looking at different methods, choosing their best parameters settings, and identifying the best classifier in a principled and explainable way.
+> A practical data analytics project that follows on from the data exploration in [Assignment 1](#assignment-1-data-exploration-and-visualisation). Here, you will make a correct prediction on the dataset after employing a sophisticated process of exploring the problem very thoroughly, preprocessing the data, looking at different methods, choosing their best parameters settings, and identifying the best classifier in a principled and explainable way.
+
+![](./stellar_classification/fda_a3.png)
 
 1️⃣ Data preprocessing and transformations:
 
@@ -85,7 +87,7 @@ In this project, the Head of the Analytics Unit asks you to use **Gaia** observa
 5️⃣ Further Improvement with [Soft Voting](https://scikit-learn.org/stable/modules/ensemble.html#weighted-average-probabilities-soft-voting):
 
 - Once the best parameters for each classifier are identified, set up a [`VotingClassifier`](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.VotingClassifier.html) with the individually optimized classifiers.
-- [Soft voting](https://scikit-learn.org/stable/modules/ensemble.html#weighted-average-probabilities-soft-voting) to predict the class labels based on the average of the probabilities given to that class by each base classifier. 
+- [Soft voting](https://scikit-learn.org/stable/modules/ensemble.html#weighted-average-probabilities-soft-voting) to predict class labels based on the average of probabilities given to that class by each base classifier. 
 - Define a new grid for the [`VotingClassifier`](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.VotingClassifier.html), including varying the weights assigned to each classifier in a [Soft Voting](https://scikit-learn.org/stable/modules/ensemble.html#weighted-average-probabilities-soft-voting) scenario.
 - Conduct a grid search over this new parameter space to fine-tune the ensemble. Ensure that the `f1-score` remains the criterion for optimization.
 - Apply the same Interpretation and Evaluation in step 4️⃣ for the [`VotingClassifier`](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.VotingClassifier.html).
