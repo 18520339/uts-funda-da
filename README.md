@@ -1,8 +1,8 @@
 # **Gaia** Stellar Data Analytics
 
-This repository contains my work for **2 assignments** in the **Fundamental of Data Analytics** subject at the **University of Technology Sydney** (UTS) taught by [Dr. Maoying Qiao](https://profiles.uts.edu.au/Maoying.Qiao). Each assignment is done using mostly [scikit-learn](https://scikit-learn.org/stable/) along with a `notebook` and a `pdf`, which includes a detailed explanation of the concepts and implementations involved, helping me achieve a perfect score of **100/100** for the subject.
+This repository contains my work for **2 major assignments** [2](#assignment-2-data-exploration-and-visualisation) and [3](#assignment-3-data-preprocessing-and-stellar-classification) of the **Fundamental of Data Analytics** subject at the **University of Technology Sydney** (UTS) taught by [Dr. Maoying Qiao](https://profiles.uts.edu.au/Maoying.Qiao). Each assignment is done using mostly [scikit-learn](https://scikit-learn.org/stable/) along with a `notebook` and a `pdf`, which includes a detailed explanation of the concepts and implementations involved, helping me achieve a perfect grade of **100/100** for the subject.
 
-## Scenario
+## Project Scenario
 
 A global space astrometry mission, **Gaia** is building the largest, most precise 3D map of our Galaxy by surveying nearly 2 billion objects. Throughout its mission, **Gaia** monitors each of its target stars about 14 times yearly. It precisely charts their positions, distances, movements, and changes in brightness. 
 
@@ -32,11 +32,11 @@ In this project, the Head of the Analytics Unit asks you to use **Gaia** observa
 | **z-Flame**     | *Quantitative, Ratio*   | Redshift in km/s |
 | **`SpType-ELS`**  | *Qualitative, Nominal*  | Estimated spectral class by **Gaia**                                                                                     |
 
-## [Assignment 1](./data_exploration/): Data Exploration and Visualisation
-
-![](./data_exploration/fda_a2.png)
+## [Assignment 2](./data_exploration/): Data Exploration and Visualisation
 
 > A thorough exploration of the dataset, identifying and characterizing outliers, clusters of data points, and potential attributes with well-chosen visualizations (including clear descriptions and interpretation). 
+
+![](./data_exploration/fda_a2.png)
 
 1️⃣ Identify the attribute type (*qualitative*, *discreet*/*continuous* *quantitative*, *nominal*, *ordinal*, *interval*, *ratio*) of each attribute in the dataset
 
@@ -44,11 +44,11 @@ In this project, the Head of the Analytics Unit asks you to use **Gaia** observa
 
 3️⃣ Based on the above summary statistics, conduct a more in-depth attribute analysis by applying proper visualizations for the corresponding statistics:
 - Give convincing explanation for your choice of attributes to work with or visualize.
-- Next, analyze the Frequency distributions with *pie*/*bar* charts.
+- Next, analyze the frequency distributions with *pie*/*bar* charts.
 - Finally, analyze any **outliers** with *boxplots*. 
 
 4️⃣ Explore multiple attributes' relationships of the dataset and include explanations of what has been identified:
-- Analyze noticeable distributions and relationships from the [pairplot](https://seaborn.pydata.org/generated/seaborn.pairplot.html). 
+- Analyze noticeable distributions and relationships from the [`pairplot`](https://seaborn.pydata.org/generated/seaborn.pairplot.html). 
 - Analyze all noticeable values from the **correlation matrix**, from the strongest to weakest.
 - Identify **interesting** and potential attributes, and specific values of those attributes.
 
@@ -56,19 +56,19 @@ In this project, the Head of the Analytics Unit asks you to use **Gaia** observa
 
 👉 Check the [fda_a2.ipynb](./data_exploration/fda_a2.ipynb) notebook and the [fda_a2.pdf](./data_exploration/fda_a2.pdf) report for more details.
 
-## [Assignment 2](./stellar_classification/): Data Preprocessing and Stellar Classification
+## [Assignment 3](./stellar_classification/): Data Preprocessing and Stellar Classification
 
-> A practical data analytics project that follows on from the data exploration in [Assignment 1](#assignment-1-data-exploration-and-visualisation). Here, you will make a correct prediction on the dataset after employing a sophisticated process of exploring the problem very thoroughly, preprocessing the data, looking at different methods, choosing their best parameters settings, and identifying the best classifier in a principled and explainable way.
+> A practical data analytics project that follows on from the data exploration in [Assignment 1](#assignment-1-data-exploration-and-visualisation). Here, you will make a correct prediction on the dataset after employing a sophisticated process of exploring the problem very thoroughly, preprocessing the data, looking at different methods, choosing their best parameter settings, and identifying the best classifier in a principled and explainable way.
 
 ![](./stellar_classification/fda_a3.png)
 
-1️⃣ Data preprocessing and transformations:
+1️⃣ Data Preprocessing and Transformations:
 
-- Remove unecessary columns like `Unnamed` or `Source` columns and **Binarize** the target column.
+- Remove unnecessary columns like `Unnamed` or `Source` columns and **Binarize** the target column.
 - Remove missing values or fill them with [`KNNImputer`](https://scikit-learn.org/stable/modules/generated/sklearn.impute.KNNImputer.html). 
 - Handle **outliers** with *winsorizing*.
 - Apply **PCA** retaining to group some highly correlated columns. 
-- Apply Scaling methods like [`StandardScaler`](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html).
+- Apply scaling methods like [`StandardScaler`](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html).
 
 2️⃣ Cross-validation on Base Classifiers for Initial Testing:
 - Select the Evaluation Metrics: *accuracy*, *precision*, *recall*, *f1-score*, *confusion matrix*, and *ROC-AUC*.
@@ -80,7 +80,7 @@ In this project, the Head of the Analytics Unit asks you to use **Gaia** observa
 - Efficiently train models using [`HalvingRandomSearchCV`](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.HalvingRandomSearchCV.html) to find the best parameters for potential classifiers that yield the most accurate predictions, focusing on the `f1-score` as the evaluation metric.
 - Integrate [`StratifiedKFold`](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.StratifiedKFold.html) **cross-validation** in the tuning process to ensure the model's performance is reliable and generalizes well to unseen data.
 
-4️⃣ Evaluation for Best Estimator from Each Search:
+4️⃣ Evaluation for Best Estimator from each Search:
 - Plot the **cross-validation** results (with `mean f1-score`) of each search to check for overfitting and underfitting
 - Utilize a range of metrics from step 1️⃣ to thoroughly evaluate model performance on the test set.
 
@@ -95,4 +95,3 @@ In this project, the Head of the Analytics Unit asks you to use **Gaia** observa
 6️⃣ Make predictions on the unknown dataset using the best model and the same preprocessing process for the training data.
 
 👉 Check the [fda_a3.ipynb](./stellar_classification/fda_a3.ipynb) notebook and the [fda_a3.pdf](./stellar_classification/fda_a3.pdf) report for more details.
-
